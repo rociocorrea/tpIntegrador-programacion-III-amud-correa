@@ -17,11 +17,26 @@ app.use((req, res, next) => {
 
 // GET all products
 app.get("/api/products", async (req, res) => {
-    const [rows] = await connection.query("SELECT * FROM products");
+    try {
+        const [rows] = await connection.query("SELECT * FROM products");
 
-    res.status(200).json({
-        payload: rows
-    })
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "No se encontraron productos"
+            })
+        }
+
+        res.status(200).json({
+            payload: rows
+        })
+    }
+    catch (error) {
+        console.log("Error obteniendo productos: ", error);
+
+        res.status(500).json({
+            message: "Error interno al obtener productos"
+        });
+    }
 });
 
 app.get("/", (req, res) => {

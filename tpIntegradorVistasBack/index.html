@@ -50,11 +50,18 @@
                 const response = await fetch(`${urlBase}/api/products`);
                 console.log(response);
                 const data = await response.json();
+
+                if(!response.ok){
+                    console.error(data.message);
+                    return mostrarError(data.message);
+                }
+
                 const productos = data.payload;
                 renderizarProductos(productos);
 
             } catch (error) {
                 console.error("Error al obtener productos: ", error);
+                return mostrarError("Error de conexión con el servidor");
             }
         }
 
@@ -75,8 +82,11 @@
             contenedorProductos.innerHTML = htmlProductos;
         }
 
+        function mostrarError(mensaje){
+            contenedorProductos.innerHTML = `<p class="error">${mensaje}</p>`
+        }
+
         obtenerProductos();
     </script>
 </body>
-
 </html>

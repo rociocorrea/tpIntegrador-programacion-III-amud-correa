@@ -1,3 +1,7 @@
+:root{
+    --color-principal: rgb(17, 103, 106);
+}
+
 body {
     font-family: 'DM Sans', 'Manrope';
     margin: 0;
@@ -8,7 +12,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(17, 103, 106);
+    background-color: var(--color-principal);
     padding: 30px;
 }
 
@@ -46,7 +50,7 @@ h4, p{
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border-color: rgb(17, 103, 106);
+    border-color: var(--color-principal);
     border-style: solid;
     margin: 40px;
     width: 400px;
@@ -57,6 +61,15 @@ h4, p{
     width: 300px;
     height: 300px;
     margin-bottom: 15px;
+}
+
+.error{
+    color: var(--color-principal);
+    border-radius: 15px;
+    border: solid;
+    border-color: var(--color-principal);
+    padding: 30px;
+    margin: 30px;
 }
 
 .footer {
