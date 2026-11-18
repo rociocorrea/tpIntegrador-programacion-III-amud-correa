@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="InstaFarma: tu autoservicio de confianza" />
+
+    <title>InstaFarma</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Importación de js con 'defer' para que se ejecute luego de que 
+     se cargue el HTML -->
+    <script src="index.js" defer></script>
+
+    <!-- Importación de fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header">
+        <img class="icono" src="img/logo.png" alt="Icono de InstaFarma">
+        <div class="titulo">
+            <h1>InstaFarma</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="contenedor-productos">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>2026 - InstaFarma</span>
+    </footer>
+
+    <script>
+        const urlBase = "http://localhost:3000";
+        const contenedorProductos = document.getElementById("contenedor-productos");
+
+        async function obtenerProductos() {
+            try {
+                const response = await fetch(`${urlBase}/api/products`);
+                console.log(response);
+                const data = await response.json();
+
+                if(!response.ok){
+                    console.error(data.message);
+                    return mostrarError(data.message);
+                }
+
+                const productos = data.payload;
+                renderizarProductos(productos);
+
+            } catch (error) {
+                console.error("Error al obtener productos: ", error);
+                return mostrarError("Error de conexión con el servidor");
+            }
+        }
+
+        function renderizarProductos(array) {
+            let htmlProductos = "";
+
+            array.forEach(producto => {
+                htmlProductos += `
+                    <div class="card-producto">
+                        <img class="card-img" src="${producto.image}" alt="${producto.name}">
+                            <h4>${producto.name}</h4>
+                            <p>$ ${producto.price}</p>
+                            <p>Id: ${producto.id}</p>
+                    </div>
+                `;
+            });
+
+            contenedorProductos.innerHTML = htmlProductos;
+        }
+
+        function mostrarError(mensaje){
+            contenedorProductos.innerHTML = `<p class="error">${mensaje}</p>`
+        }
+
+        obtenerProductos();
+    </script>
+</body>
+</html>
