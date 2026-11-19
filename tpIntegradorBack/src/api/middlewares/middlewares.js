@@ -5,7 +5,20 @@ const logger = (req, res, next) => {
     next();
 };
 
+const validateId = (req, res, next) => {
+    const id = Number(req.params.id);
+
+    if(!Number.isInteger(id) || id <= 0){
+        return res.status(400).json({
+            message: "El id es inválido: ingrese un número entero positivo"
+        });
+    }
+    req.id = id;
+    next();
+};
+
 //Exportación para utilización en otros módulos
 export {
-    logger
+    logger,
+    validateId
 }
