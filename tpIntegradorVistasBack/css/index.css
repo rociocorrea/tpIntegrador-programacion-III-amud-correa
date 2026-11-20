@@ -90,7 +90,7 @@ h4, p{
     align-items: center;
 }
 
-#product-form{
+#product-form, #create-form{
     display: flex;
     flex-direction: column; 
 }
@@ -122,4 +122,10 @@ h4, p{
     gap: 30px;
     list-style: none;
     padding: 0;
+}
+
+#errors{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

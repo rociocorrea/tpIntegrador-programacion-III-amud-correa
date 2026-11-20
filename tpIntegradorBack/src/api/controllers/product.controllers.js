@@ -48,6 +48,26 @@ export const getProductById = async (req, res) => {
     }
 };
 
+//CREATE
+export const postProduct = async(req, res) =>{
+    try {
+        const {category, image, name, price} = req.body;
+        const [result] = await ProductModels.insertProduct(category, image, name, price);
+        
+        res.status(201).json({
+            message: "El producto fue creado correctamente",
+            productId: result.insertId
+        });
+
+    } catch (error) {
+        console.log("Error obteniendo producto: ", error);
+
+        res.status(500).json({
+            message: "Error interno al obtener producto"
+        });
+    }
+}
+
 //DELETE 
 export const deleteProductById = async (req, res) => {
     try{
