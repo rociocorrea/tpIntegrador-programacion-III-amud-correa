@@ -18,7 +18,7 @@ const updateProduct = (id, category, image, name, price, active) => {
 }
 
 const deleteProductById = (id) => {
-    return connection.query(`UPDATE products SET active = 0 WHERE products.id = ?`, [id]);
+    return connection.query(`DELETE from products WHERE products.id = ?`, [id]);
 };
 
 export default {
