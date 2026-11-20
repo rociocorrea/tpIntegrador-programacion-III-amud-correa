@@ -15,7 +15,7 @@
     <script src="index.js" defer></script>
 
     <!-- Importación de fuentes Google Fonts e íconos -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -54,7 +54,7 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                 </li>
                 <li>
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i id="btn-eliminar" class="fa-solid fa-trash-can"></i>
                 </li>
             </ul>
         </section>
@@ -68,8 +68,28 @@
         const urlBase = "http://localhost:3000";
         const contenedorProducto = document.getElementById("contenedor-producto");
         const getProductForm = document.getElementById("product-form");
+        const btnEliminar = document.getElementById("btn-eliminar");
+        let productIdFound = null;
+
+        btnEliminar.addEventListener("click", async (event) => {
+
+            if (!productIdFound) {
+                return mostrarError("Ingresar Id válido");
+            }
+
+            const confirmacion = confirm("Está seguro que quiere eliminar el producto?");
+
+            if(!confirmacion){
+                alert("Eliminación cancelada")
+            }
+            else{
+                await eliminarProducto(productIdFound);
+            }
+        });
 
         getProductForm.addEventListener("submit", async (event) => {
+            productIdFound = null;
+
             event.preventDefault();
             const idProd = event.target.idProduct.value.trim();
 
@@ -89,14 +109,38 @@
                 }
 
                 const producto = data.payload[0];
+                productIdFound = idProd;
 
                 renderizarProducto(producto);
 
             } catch (error) {
-                console.error("Error al obtener productos: ", error);
+                console.error("Error al obtener producto: ", error);
                 return mostrarError("Error de conexión con el servidor");
             }
         });
+
+        async function eliminarProducto(id){
+            try {
+                const response = await fetch(`${urlBase}/api/products/${productIdFound}`, {
+                    method: "DELETE"
+                });
+                console.log(response); //Borrar
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    console.error(data.message);
+                    return mostrarError(data.message);
+                }
+
+                alert(data.message);
+                contenedorProducto.innerHTML = "";
+
+            } catch (error) {
+                console.error("Error al eliminar producto: ", error);
+                return mostrarError("Error de conexión con el servidor");
+            }
+        }
 
         function renderizarProducto(producto) {
             let htmlProductos = `

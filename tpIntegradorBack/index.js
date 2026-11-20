@@ -8,6 +8,7 @@ const app = express();
 const PORT = environments.port;
 
 app.use(cors());
+app.use(express.json());
 app.use(logger);
 
 app.use("/api/products", productRoutes);
