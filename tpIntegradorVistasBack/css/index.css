@@ -54,7 +54,7 @@ h4, p{
     border-style: solid;
     margin: 40px;
     width: 400px;
-    height: 400px;
+    height: 480px;
 }
 
 .card-img{
@@ -82,15 +82,17 @@ h4, p{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative
 }
 
 .formulario{
     display: flex;
     flex-direction: column; 
     align-items: center;
+    padding-top: 20px;
 }
 
-#product-form, #create-form{
+#product-form, #create-form, #update-form{
     display: flex;
     flex-direction: column; 
 }
@@ -101,17 +103,23 @@ h4, p{
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
+    border: none;
 }
 
 .boton-crear{
     color: white;
     background-color: var(--color-principal);
     border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
+    padding: 15px;
+    margin-right: 55px;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    left: calc(50% + 220px);
 }
 
-#btn-eliminar {
+#btn-modificar, #btn-eliminar {
     cursor: pointer;
 }
 
@@ -121,6 +129,7 @@ h4, p{
     justify-content: center;
     gap: 30px;
     list-style: none;
+    font-size: 24px;
     padding: 0;
 }
 

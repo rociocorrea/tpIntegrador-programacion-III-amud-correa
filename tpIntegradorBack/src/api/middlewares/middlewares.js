@@ -19,9 +19,10 @@ const validateId = (req, res, next) => {
 
 const validateProduct = (req, res, next) => {
     const validCategories = ["belleza", "farmacia"];
+    const validStatus = [0, 1];
     const errors = [];
 
-    const { category, image, name, price } = req.body;
+    const { category, image, name, price, active } = req.body;
 
     if (!category || !image || !name || !price) {
         errors.push("Faltan campos requeridos");
@@ -39,12 +40,15 @@ const validateProduct = (req, res, next) => {
         errors.push("El enlace de la imagen debe tener más de dos caracteres");
     }
 
-    if(!validCategories.includes(category)){
+    if (!validCategories.includes(category)) {
         errors.push("La categoría es inválida");
     }
 
-    if(errors.length > 0)
-    {
+    if (!validStatus.includes(active)) {
+        errors.push("El estado es inválido");
+    }
+
+    if (errors.length > 0) {
         return res.status(400).json({
             message: "Datos inválidos",
             listErrors: errors
