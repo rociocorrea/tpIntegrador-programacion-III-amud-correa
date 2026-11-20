@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(logger);
 
 app.use("/api/products", productRoutes);
-app.use("/api/products/:id", productRoutes);
 
 //Esto es de testing, borrar luego
 app.get("/", (req, res) => {
