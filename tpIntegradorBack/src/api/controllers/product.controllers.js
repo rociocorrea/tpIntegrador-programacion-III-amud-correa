@@ -48,6 +48,7 @@ export const getProductById = async (req, res) => {
     }
 };
 
+//DELETE 
 export const deleteProductById = async (req, res) => {
     try{
         const [rows] = await ProductModels.selectProductById(req.id);
@@ -58,9 +59,9 @@ export const deleteProductById = async (req, res) => {
             })
         }
 
-        const [row] = await ProductModels.deleteProductById(req.id);
+        await ProductModels.deleteProductById(req.id);
 
-         res.status(200).json({
+        res.status(200).json({
             message: `Producto con id ${req.id} eliminado correctamente`
         })
 
