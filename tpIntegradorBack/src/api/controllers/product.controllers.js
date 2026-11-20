@@ -60,10 +60,36 @@ export const postProduct = async(req, res) =>{
         });
 
     } catch (error) {
-        console.log("Error obteniendo producto: ", error);
+        console.log("Error creando producto: ", error);
 
         res.status(500).json({
-            message: "Error interno al obtener producto"
+            message: "Error interno al crear producto"
+        });
+    }
+}
+
+//UPDATE
+export const putProduct = async(req, res) =>{
+    try {
+        const {id, category, image, name, price, active} = req.body;
+        const [result] = await ProductModels.updateProduct(id, category, 
+                                                    image, name, price, active);
+
+        if(result.changedRows === 0){
+            return res.status(404).json({
+            message: "No se modificó el producto"
+        });
+        }                                            
+        
+        res.status(201).json({
+            message: "El producto fue modificado correctamente"
+        });
+
+    } catch (error) {
+        console.log("Error modificando producto: ", error);
+
+        res.status(500).json({
+            message: "Error interno al modificar producto"
         });
     }
 }
@@ -87,10 +113,10 @@ export const deleteProductById = async (req, res) => {
 
     }catch(error)
     {
-        console.log("Error obteniendo producto: ", error);
+        console.log("Error eliminando producto: ", error);
 
         res.status(500).json({
-            message: "Error interno al obtener producto"
+            message: "Error interno al eliminar producto"
         });
     }
 };
