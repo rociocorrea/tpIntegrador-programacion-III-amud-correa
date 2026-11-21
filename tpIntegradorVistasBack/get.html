@@ -67,9 +67,10 @@
         let productIdFound = null;
 
         getProductForm.addEventListener("submit", async (event) => {
-            productIdFound = null;
 
             event.preventDefault();
+            productIdFound = null;
+            errorContainer.innerHTML = "";
             const idProd = event.target.idProduct.value.trim();
 
             if (!idProd) {
