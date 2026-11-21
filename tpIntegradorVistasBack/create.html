@@ -83,6 +83,7 @@
 
             formObjt.price = Number(formObjt.price);
             formObjt.name = formObjt.name.trim();
+            formObjt.active = 1;
 
             const errors = validateForm(formObjt);
 
@@ -99,7 +100,6 @@
                     },
                     body: JSON.stringify(formObjt)
                 });
-                console.log(response); //Borrar
 
                 const data = await response.json();
 
