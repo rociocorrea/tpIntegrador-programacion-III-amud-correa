@@ -98,6 +98,53 @@
             contenedorProductos.innerHTML = `<p class="error">${mensaje}</p>`
         }
 
+        contenedorProductos.addEventListener("click", async (event) => {
+            const btnEliminar = event.target.closest(".fa-trash-can");
+            const btnModificar = event.target.closest(".fa-pen-to-square");
+
+            // ELIMINAR PRODUCTO
+            if (btnEliminar) {
+                const card = btnEliminar.closest(".card-producto");
+
+                const id = card.querySelector("p:nth-of-type(2)")
+                    .textContent.replace("Id: ", "").trim();
+
+                if (confirm(`¿Estás seguro de eliminar el producto ${id}?`)) {
+                    await eliminarProducto(id);
+                }
+            }
+
+            // MODIFICAR PRODUCTO
+            if (btnModificar) {
+                const card = btnModificar.closest(".card-producto");
+
+                const id = card.querySelector("p:nth-of-type(2)")
+                    .textContent.replace("Id: ", "").trim();
+
+                renderizarModifProducto(id);
+            }
+        });
+        async function eliminarProducto(id) {
+            try {
+                const response = await fetch(`${urlBase}/api/products/${id}`, {
+                    method: "DELETE"
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    return mostrarError(data.message);
+                }
+
+                alert(data.message);
+                obtenerProductos();
+
+            } catch (error) {
+                console.error("Error al eliminar producto:", error);
+                mostrarError("Error de conexión con el servidor");
+            }
+        }
+
         obtenerProductos();
     </script>
 </body>
