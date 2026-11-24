@@ -1,0 +1,27 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+    <main>
+        <section class="titulo">
+            <h2>Consulte producto por Id</h2>
+        </section>
+        <section class="formulario">
+            <form id="product-form">
+                <label for="idProduct">Id producto</label>
+                <input type="number" name="id" id="idProduct" min="1" required>
+
+                <input type="submit" class="boton" value="Buscar">
+            </form>
+        </section>
+
+        <section id="contenedor-producto">
+        </section>
+        <section id="update-form" class="formulario">
+        </section>
+        <section id="errors">
+        </section>
+    </main>
+
+    <script src="/js/get.js"></script>
+
+<%- include("partials/footer.ejs") %>
