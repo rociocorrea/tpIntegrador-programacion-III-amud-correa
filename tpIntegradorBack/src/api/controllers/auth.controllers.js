@@ -7,6 +7,7 @@ export const getLogin = (req, res) =>{
     });
 }
 
+
 export const validateLogin = async (req, res) =>{
     try {
         //Extraemos los datos que vienen del cuerpo de la peticion post
@@ -43,8 +44,18 @@ export const validateLogin = async (req, res) =>{
         //Creada la sesion redirigimos a la pantalla principal
         res.redirect("/dashboard/principal")
 
-    //Endpoint para destruir sesion
-    router.post("/logout", (req, res) =>{
+    
+    
+
+    } catch (error) {
+        console.log("Error en el login: ", error)
+        res.status(500).json({
+            message: "Error interno en el servidor"
+        })
+    }
+};
+//Endpoint para destruir sesion
+export const logout = (req, res) =>{
         //Destruye la sesion
         req.session.destroy((err) =>{
             if(err){
@@ -55,12 +66,4 @@ export const validateLogin = async (req, res) =>{
             }
             res.redirect("/login")
         })
-    })
-
-    } catch (error) {
-        console.log("Error en el login: ", error)
-        res.status(500).json({
-            message: "Error interno en el servidor"
-        })
-    }
-}
+    };
