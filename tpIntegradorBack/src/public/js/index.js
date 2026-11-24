@@ -83,7 +83,7 @@ function actualizarCarrito() {
     const cartTotal = document.getElementById("cart-total");
     const cartCountHeader = document.getElementById("cart-count-header");
 
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('carrito', JSON.stringify(carrito)); //transformo en una cadena de texto
 
     if (carrito.length === 0) {
         cartList.innerHTML = `<li class="carrito-vacio">Tu carrito está vacío</li>`;
