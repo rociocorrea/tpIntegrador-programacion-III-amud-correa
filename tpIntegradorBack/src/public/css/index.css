@@ -151,7 +151,6 @@ h4, p{
     align-items: center;
 }
 
-HEAD
 .centrado{
     text-align: center;
 }
@@ -261,4 +260,13 @@ HEAD
         box-sizing: border-box;
     }
 }
-
+ /*CARRITO*/
+.carrito{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     text-align: center;
+    width: 100%;
+}
