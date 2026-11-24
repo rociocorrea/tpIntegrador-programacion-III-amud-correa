@@ -42,7 +42,7 @@ export const validateLogin = async (req, res) =>{
         }
 
         //Creada la sesion redirigimos a la pantalla principal
-        res.redirect("/dashboard/principal")
+        res.redirect("/dashboard/home")
 
     
     
