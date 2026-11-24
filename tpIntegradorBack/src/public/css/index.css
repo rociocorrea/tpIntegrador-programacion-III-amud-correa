@@ -151,6 +151,7 @@ h4, p{
     align-items: center;
 }
 
+HEAD
 .centrado{
     text-align: center;
 }
@@ -161,5 +162,103 @@ h4, p{
     width: 90%;
     max-width: 400px;
     margin: 0 auto;
+}
+
+
+/* PÁGINA DE BIENVENIDA */
+.landing-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 620px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    color: #263b3b;
+    font-family: 'Manrope', sans-serif;
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 0 0 20px;
+}
+
+.hero-descripcion {
+    color: #606b6b;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton-hero {
+    display: inline-block;
+    padding: 13px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.boton-principal {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.boton-principal:hover {
+    background-color: rgb(12, 78, 81);
+}
+
+.boton-secundario {
+    color: var(--color-principal);
+    border: 2px solid var(--color-principal);
+}
+
+.boton-secundario:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+@media (max-width: 750px) {
+    .landing-main {
+        padding: 35px 6%;
+    }
+
+    .hero {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-botones {
+        flex-direction: column;
+    }
+
+    .boton-hero {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 

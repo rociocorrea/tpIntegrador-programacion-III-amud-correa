@@ -1,0 +1,27 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+<main class="landing-main">
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Panel de administración de InstaFarma</h2>
+            <p class="hero-descripcion">
+                Seleccioná la opción que necesitás para continuar
+            </p>
+
+            <div class="hero-botones">
+                <a class="boton-hero boton-principal" href="/dashboard/principal">
+                    Ver todos los productos
+                </a>
+                <a class="boton-hero boton-secundario" href="/dashboard/get">
+                    Consultar producto
+                </a>
+                <a class="boton-hero boton-secundario" href="/dashboard/create">
+                    Crear producto
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include("partials/footer.ejs") %>
