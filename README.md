@@ -11,7 +11,8 @@ Dentro de tpIntegradorBack:
 6. Instalamos npm i mysql2, para gestionar bases de datos
 7. Instalamos npm i dotenv, carga variables de entorno en el proyecto
 8. Instalamos npm i cors, middleware que permite la interacción entre front y back
-9. En package.json:
+9. Instalamos npm i ejs, embedded JavaScript
+10. En package.json:
     "type": "module" para utilizar sintaxis moderna
     en "scripts" agregar "dev": "node --watch index.js" así, para ejecutar este comando utilizo npm run dev
 

@@ -1,0 +1,37 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+    <main>
+        <section class="titulo">
+            <h2>Crear producto</h2>
+        </section>
+        <section class="formulario">
+            <form id="create-form">
+                <label for="categoryProduct">Categoría</label>
+                <select name="category" id="categoryProduct" required>
+                    <option value="belleza">Belleza</option>
+                    <option value="farmacia">Farmacia</option>
+                </select>
+
+                <label for="imageProduct">Imagen</label>
+                <input type="text" name="image" id="imageProduct" required>
+
+                <label for="nameProduct">Nombre</label>
+                <input type="text" name="name" id="nameProduct" required>
+
+                <label for="priceProduct">Precio</label>
+                <input type="number" name="price" id="priceProduct" min="1" required>
+
+                <input type="submit" class="boton" value="Crear">
+
+            </form>
+        </section>
+
+        <section id="contenedor-productos">
+        </section>
+        <section id="errors"></section>
+    </main>
+
+    <script src="/js/create.js"></script>
+
+<%- include("partials/footer.ejs") %>
