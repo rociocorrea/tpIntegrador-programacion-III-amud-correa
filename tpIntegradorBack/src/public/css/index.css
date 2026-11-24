@@ -155,16 +155,8 @@ h4, p{
 }
 
 .hero-content {
-    max-width: 520px;
+    max-width: 620px;
     text-align: center;
-}
-
-.hero-etiqueta {
-    color: var(--color-principal);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
 }
 
 .hero-content h2 {
