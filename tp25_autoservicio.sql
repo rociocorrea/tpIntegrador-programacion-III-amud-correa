@@ -23,7 +23,7 @@ CREATE TABLE `products` (
   `id` int NOT NULL,
   `name` varchar(100) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `category` enum('belleza', 'farmacia', 'cuidado personal') NOT NULL,
+  `category` enum('belleza', 'farmacia') NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -32,26 +32,26 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 INSERT INTO `products` (`id`, `name`, `image`, `category`, `price`, `active`) VALUES
-(1, 'Fragancia Noir EDT for Women', './img/belleza/perfume-mujer.jpg', 'belleza', '23000.00', 1),
-(2, 'Fragancia Absolute EDT for Men', './img/belleza/perfume-hombre.jpg', 'belleza', '30000.00', 1),
-(3, 'Paleta de Sombras Rimmel Magnif Eyes Spice', './img/belleza/paleta-sombras.jpg', 'belleza', '19000.00', 1),
-(4, 'Mascara de Pestanas Maybelline Sky High Waterproof', './img/belleza/mascara-pestañas.jpg', 'belleza', '26000.00', 1),
-(5, 'Corrector de Ojeras Rimmel Kind & Free 40 Tan', './img/belleza/corrector-ojeras.jpg', 'belleza', '13000.00', 1),
-(6, 'Labial en Barra Revlon Super Lustrous', './img/belleza/labial.jpg', 'belleza', '19000.00', 1),
-(7, 'Hidratante Facial Neutrogena Hydro Boost 50g', './img/belleza/hidratante-facial.jpg', 'belleza', '55000.00', 1),
-(8, 'Esmalte Sally Hansen Color Therapy', './img/belleza/esmalte-uñas.jpg', 'belleza', '12000.00', 1),
-(9, 'Delineador Rimmel Scandal Eyes Exaggerate Black', './img/belleza/delineador.jpg', 'belleza', '14000.00', 1),
-(10, 'Mascara de Tratamiento Dove Hidratacion Hialuron 10 en 1', './img/belleza/tratamiento-capilar-hidratacion.jpg', 'belleza', '13000.00', 1),
-(11, 'Buscapina Antiespasmodico x 20 grageas', './img/farmacia/buscapina.jpg', 'farmacia', '13000.00', 1),
-(12, 'Actron Ibuprofeno 400 mg x 20 capsulas', './img/farmacia/actron.jpg', 'farmacia', '5000.00', 1),
-(13, 'Paracetamol Isa 500 mg x 30 comprimidos', './img/farmacia/paracetamol.jpg', 'farmacia', '9000.00', 1),
-(14, 'Refrianex Compuesto x 20 comprimidos', './img/farmacia/refrianex.jpg', 'farmacia', '11000.00', 1),
-(15, 'Vick Vitapyrena Miel y Limon x 1 sobre', './img/farmacia/te-vick.jpg', 'farmacia', '3000.00', 1),
-(16, 'Next Gripe x 20 comprimidos', './img/farmacia/next.jpg', 'farmacia', '11000.00', 1),
-(17, 'Hepatalgina x 10 comprimidos', './img/farmacia/hepatalgina.jpg', 'farmacia', '7000.00', 1),
-(18, 'Supradyn Multivitaminico x 30 comprimidos', './img/farmacia/supradyn-multivitaminico.jpg', 'farmacia', '22000.00', 1),
-(19, 'Alernix Spray Nasal x 10 ml', './img/farmacia/alernix.jpg', 'farmacia', '16000.00', 1),
-(20, 'Ibuprofeno 400 mg x 20 comprimidos', './img/farmacia/ibuprofeno.jpg', 'farmacia', '6000.00', 1);
+(1, 'Fragancia Noir EDT for Women', 'https://farmaonline.vtexassets.com/arquivos/ids/1321535-800-800?v=638774091759770000&width=800&height=800&aspect=true', 'belleza', '23000.00', 1),
+(2, 'Fragancia Absolute EDT for Men', 'https://farmaonline.vtexassets.com/arquivos/ids/1321207-800-800?v=638774018991670000&width=800&height=800&aspect=true', 'belleza', '30000.00', 1),
+(3, 'Paleta de Sombras Rimmel Magnif Eyes Spice', 'https://farmacityar.vtexassets.com/arquivos/ids/184273-800-auto?v=636921556242930000&width=800&height=auto&aspect=true', 'belleza', '19000.00', 1),
+(4, 'Mascara de Pestanas Maybelline Sky High Waterproof', 'https://farmacityar.vtexassets.com/arquivos/ids/280077-800-auto?v=638905985335930000&width=800&height=auto&aspect=true', 'belleza', '26000.00', 1),
+(5, 'Corrector de Ojeras Rimmel Kind & Free 40 Tan', 'https://farmacityar.vtexassets.com/arquivos/ids/219399-800-auto?v=637804430615800000&width=800&height=auto&aspect=true', 'belleza', '13000.00', 1),
+(6, 'Labial en Barra Revlon Super Lustrous', 'https://farmacityar.vtexassets.com/arquivos/ids/260621-800-auto?v=638628872755770000&width=800&height=auto&aspect=true', 'belleza', '19000.00', 1),
+(7, 'Hidratante Facial Neutrogena Hydro Boost 50g', 'https://farmacityar.vtexassets.com/arquivos/ids/284962-800-auto?v=638972716096500000&width=800&height=auto&aspect=true', 'belleza', '55000.00', 1),
+(8, 'Esmalte Sally Hansen Color Therapy', 'https://farmacityar.vtexassets.com/arquivos/ids/275771-800-auto?v=638875880591370000&width=800&height=auto&aspect=true', 'belleza', '12000.00', 1),
+(9, 'Delineador Rimmel Scandal Eyes Exaggerate Black', 'https://farmacityar.vtexassets.com/arquivos/ids/231089-800-auto?v=638030079963500000&width=800&height=auto&aspect=true', 'belleza', '14000.00', 1),
+(10, 'Mascara de Tratamiento Dove Hidratacion Hialuron 10 en 1', 'https://farmacityar.vtexassets.com/arquivos/ids/293652-800-auto?v=639162647473900000&width=800&height=auto&aspect=true', 'belleza', '13000.00', 1),
+(11, 'Buscapina Antiespasmodico x 20 grageas', 'https://farmacityar.vtexassets.com/arquivos/ids/233597-800-auto?v=638077688180700000&width=800&height=auto&aspect=true', 'farmacia', '13000.00', 1),
+(12, 'Actron Ibuprofeno 400 mg x 20 capsulas', 'https://farmacityar.vtexassets.com/arquivos/ids/293493-800-auto?v=639161982082470000&width=800&height=auto&aspect=true', 'farmacia', '5000.00', 1),
+(13, 'Paracetamol Isa 500 mg x 30 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/233642-800-auto?v=638077692907070000&width=800&height=auto&aspect=true', 'farmacia', '9000.00', 1),
+(14, 'Refrianex Compuesto x 20 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/275742-800-auto?v=638875869616730000&width=800&height=auto&aspect=true', 'farmacia', '11000.00', 1),
+(15, 'Vick Vitapyrena Miel y Limon x 1 sobre', 'https://farmacityar.vtexassets.com/arquivos/ids/289028-800-auto?v=639076322352700000&width=800&height=auto&aspect=true', 'farmacia', '3000.00', 1),
+(16, 'Next Gripe x 20 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/297440-800-auto?v=639214634171530000&width=800&height=auto&aspect=true', 'farmacia', '11000.00', 1),
+(17, 'Hepatalgina x 10 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/262602-800-auto?v=638672822543830000&width=800&height=auto&aspect=true', 'farmacia', '7000.00', 1),
+(18, 'Supradyn Multivitaminico x 30 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/297243-800-auto?v=639210495825830000&width=800&height=auto&aspect=true', 'farmacia', '22000.00', 1),
+(19, 'Alernix Spray Nasal x 10 ml', 'https://farmacityar.vtexassets.com/arquivos/ids/234413-800-auto?v=638085320825100000&width=800&height=auto&aspect=true', 'farmacia', '16000.00', 1),
+(20, 'Ibuprofeno 400 mg x 20 comprimidos', 'https://farmacityar.vtexassets.com/arquivos/ids/297421-800-auto?v=639214617125100000&width=800&height=auto&aspect=true', 'farmacia', '6000.00', 1);
 
 -- --------------------------------------------------------
 
