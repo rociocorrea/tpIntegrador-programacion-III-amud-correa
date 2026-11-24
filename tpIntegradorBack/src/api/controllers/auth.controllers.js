@@ -53,7 +53,7 @@ export const validateLogin = async (req, res) =>{
                     message: "Error al cerrar la sesion"
                 });
             }
-            res.redirect("/login", )
+            res.redirect("/login")
         })
     })
 

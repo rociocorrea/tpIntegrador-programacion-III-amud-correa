@@ -1,6 +1,5 @@
 //Rutas de autenticacion
 import { Router } from "express";
-import connection from "../database/db.js";
 import { getLogin, validateLogin } from "../controllers/auth.controllers.js";
 const router = Router();
 
