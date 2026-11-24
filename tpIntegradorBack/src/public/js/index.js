@@ -33,15 +33,6 @@ function renderizarProductos(array) {
                             <p>$ ${producto.price}</p>
                             <p>Id: ${producto.id}</p>
                             <p>Estado: ${producto.active}</p>
-
-                            <ul class="iconos">
-                                <li>
-                                    <i id="btn-modificar" class="fa-solid fa-pen-to-square"></i>
-                                </li>
-                                <li>
-                                    <i id="btn-eliminar" class="fa-solid fa-trash-can"></i>
-                                </li>
-                            </ul>
                     </div>
                 `;
     });

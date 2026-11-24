@@ -24,10 +24,12 @@ getProductForm.addEventListener("submit", async (event) => {
         const data = await response.json();
 
         if (!response.ok) {
+            contenedorProducto.innerHTML = "";
             console.error(data.message);
             return mostrarError(data.message);
         }
 
+        contenedorProducto.innerHTML = "";
         const producto = data.payload[0];
         productIdFound = idProd;
 

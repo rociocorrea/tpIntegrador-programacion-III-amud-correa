@@ -1,17 +1,12 @@
 import { Router } from "express"
+import { get, vistaPrincipal, create } from "../controllers/view.controllers.js";
 
 const router = Router()
 
-router.get("/principal", (req, res) => {
-    res.render("index");
-});
+router.get("/principal", vistaPrincipal);
 
-router.get("/get", (req, res) => {
-    res.render("get");
-});
+router.get("/get", get);
 
-router.get("/create", (req, res) => {
-    res.render("create");
-});
+router.get("/create", create);
 
 export default router;
