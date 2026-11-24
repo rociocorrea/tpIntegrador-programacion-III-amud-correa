@@ -58,9 +58,19 @@ const validateProduct = (req, res, next) => {
     next();
 };
 
+//Middleware de ruta para proteger las rutas (las vistas del dashboard)
+const requireLogin = (req, res, next) => {
+    //Si no existe el usuario en la sesion lo redirigimos nuevamente al login
+    if (!req.session.user){
+        return res.redirect("/login")
+    }
+    next();
+}
+
 //Exportación para utilización en otros módulos
 export {
     logger,
     validateId,
-    validateProduct
+    validateProduct,
+    requireLogin
 }

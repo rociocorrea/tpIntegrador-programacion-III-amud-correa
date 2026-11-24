@@ -5,6 +5,7 @@ export const vistaPrincipal = async (req, res) => {
     try {
         const [rows] = await ProductModels.selectAllProducts();
 
+        console.log(rows);
         res.render("index", {
             title: "Principal",
             listaProductos: rows

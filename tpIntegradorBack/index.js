@@ -2,11 +2,15 @@ import express from "express";
 import environments from "./src/api/config/environments.js";
 import cors from "cors";
 import { logger } from "./src/api/middlewares/middlewares.js";
-import { productRoutes, viewRoutes } from "./src/api/routes/index.js";
-import { join, __dirname } from "./src/api/utils/index.js";
+import { authRoutes, productRoutes, viewRoutes } from "./src/api/routes/index.js";
+import {__dirname, join} from "./src/api/utils/index.js"
+import session from "express-session";
+
+//Configuramos EJS como motor de plantilla
 
 const app = express();
-const PORT = environments.port;
+const { port, session_key} = environments
+const PORT = port;
 
 app.set("view engine", "ejs");
 app.set("views", join(__dirname, "src/views"));
@@ -14,14 +18,23 @@ app.set("views", join(__dirname, "src/views"));
 app.use(express.static(join(__dirname, "src/public")));
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true})) //Middleware para parsear los datos que recibimos de un HTML <form>
 app.use(logger);
+
+app.use(session({
+    secret: session_key,
+    resave: false,  //Evita guardar la sesion si no hubo cambios
+    saveUninitialize: true //No guarda sesiones vacias
+}))
 
 app.use("/api/products", productRoutes);
 app.use("/dashboard", viewRoutes);
 
+//Rutas de autenticacion
+app.use("/", authRoutes);
+
 //Esto es de testing, borrar luego
-app.get("/", (req, res) => {
-    res.send("Hola desde Express.js!");
+app.get("/", (req, res) => {res.send("Hola desde Express.js!");
 });
 
 //Esto se podría dejar
