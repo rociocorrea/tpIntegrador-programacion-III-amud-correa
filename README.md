@@ -15,6 +15,6 @@ Dentro de tpIntegradorBack:
 10. En package.json:
     "type": "module" para utilizar sintaxis moderna
     en "scripts" agregar "dev": "node --watch index.js" así, para ejecutar este comando utilizo npm run dev
-
+11. Instalamos npm i express-session, para realizar el login y que el usuario se pueda autenticar (es un middleware que permite que Express recuerde datos entre peticiones)
 ## Cómo organizamos este proyecto
 A través de Trello para creación y asignación de tareas: https://trello.com/b/1aqR2myw/tp-integrador-programacion-iii

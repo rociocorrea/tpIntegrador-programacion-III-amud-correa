@@ -1,0 +1,27 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+<main>
+    <h3 class="centrado"><%- about %></h3>
+    <!-- Method indica que tipo de peticion http va a hacer,
+         Action indica a que url se va a hacer esta peticion HTTP POST-->
+    <form class="form-login" action="/login" method="POST">
+
+        <label for="emailUser">Email</label>
+        <input type="email" name="email" id="emailUser">
+
+        <label for="passwordUser">Password</label>
+        <input type="password" name="password" id="passwordUser">
+
+        <input type="submit" value="Login">
+
+        <% if (typeof error !== "undefined") {%>
+        <p class="mensaje error centrado"> <%= error %></p>
+        <% } %>
+    </form>
+</main>
+
+
+
+
+<%- include("partials/footer.ejs") %>

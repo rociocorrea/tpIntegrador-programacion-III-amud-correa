@@ -5,7 +5,7 @@
             <section id="contenedor-productos">
                 <% listaProductos.forEach(producto=> { %>
                     <div class="card-producto">
-                        <img class="card-img" src=" <%= producto.image %> " alt="<%= producto.name %>">
+                        <img class="card-img" src="/img/<%= producto.image %>" alt="<%= producto.name %>">
                         <h4><%= producto.name %></h4>
                         <p>Id: <%= producto.id %></p>
                         <p>$ <%= producto.price %></p>
