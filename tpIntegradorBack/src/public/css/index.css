@@ -17,8 +17,14 @@ header {
     padding: 30px;
 }
 
-ul{
-    list-style-type: none;
+.header-ul{
+    display: flex;
+    align-items: center; /* Alinea verticalmente los enlaces y el botón Logout */
+    gap: 1.5rem;
+    list-style: none;    
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
 }
 
 
