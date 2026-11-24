@@ -30,3 +30,9 @@ export const create = async (req, res) => {
         title: "Crear"
     });
 };
+
+export const home = async (req, res) => {
+    res.render("home", {
+        title: "Home"
+    });
+};
