@@ -42,10 +42,7 @@ export const validateLogin = async (req, res) =>{
         }
 
         //Creada la sesion redirigimos a la pantalla principal
-        res.redirect("/dashboard/home")
-
-    
-    
+        res.redirect("/dashboard/principal")
 
     } catch (error) {
         console.log("Error en el login: ", error)
@@ -54,6 +51,7 @@ export const validateLogin = async (req, res) =>{
         })
     }
 };
+
 //Endpoint para destruir sesion
 export const logout = (req, res) =>{
         //Destruye la sesion

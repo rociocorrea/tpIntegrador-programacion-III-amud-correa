@@ -1,7 +1,6 @@
 :root{
-    --color-principal: rgb(17, 103, 106);
+    --color-principal: rgb(23, 50, 11);
 }
-
 
 body {
     font-family: 'DM Sans', 'Manrope';
@@ -14,7 +13,7 @@ header {
     align-items: center;
     justify-content: center;
     background-color: var(--color-principal);
-    padding: 30px;
+    padding: 35px;
 }
 
 .header-ul{
@@ -30,6 +29,15 @@ header {
 li a {
   text-decoration: none;
   color: white;
+}
+
+#btn-logout {
+    margin-left: 50px;
+    margin-right: 10px;
+    padding: 8px 15px;
+    color: white;
+    position: absolute;
+    right: 20px;
 }
 
 h1{
@@ -53,12 +61,21 @@ h4, p{
 
 .titulo {
     text-align: center;
+    margin-top: 10px;
 }
 
-#contenedor-productos, #contenedor-producto{
+#contenedor-productos{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#contenedor-producto{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-producto{
@@ -68,15 +85,32 @@ h4, p{
     border-radius: 20px;
     border-color: var(--color-principal);
     border-style: solid;
-    margin: 40px;
-    width: 400px;
-    height: 480px;
+    margin: 30px;
+    width: 300px;
+    height: 260px;
+}
+
+.card-producto-get{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border-color: var(--color-principal);
+    border-style: solid;
+    margin-top: 20px;
+    width: 300px;
+    height: 260px;
 }
 
 .card-img{
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     margin-bottom: 15px;
+}
+
+.card-producto-deshabilitada{
+    opacity: 0.5;
 }
 
 .error{
@@ -111,14 +145,16 @@ h4, p{
 #product-form, #create-form, #update-form{
     display: flex;
     flex-direction: column; 
+    justify-content: center;
+    width: 30%;
 }
 
 .boton{
     color: white;
     background-color: var(--color-principal);
     border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
+    padding: 6px;
+    margin-top: 15px;
     cursor: pointer;
     border: none;
 }
@@ -143,10 +179,12 @@ h4, p{
     color: var(--color-principal);
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
     list-style: none;
     font-size: 24px;
     padding: 0;
+    margin-top: 20px;
 }
 
 #errors{
@@ -165,112 +203,4 @@ h4, p{
     width: 90%;
     max-width: 400px;
     margin: 0 auto;
-}
-
-
-/* PÁGINA DE BIENVENIDA */
-.landing-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 50px;
-}
-
-.hero {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    max-width: 620px;
-    text-align: center;
-}
-
-.hero-content h2 {
-    color: #263b3b;
-    font-family: 'Manrope', sans-serif;
-    font-size: 42px;
-    line-height: 1.2;
-    margin: 0 0 20px;
-}
-
-.hero-descripcion {
-    color: #606b6b;
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.hero-botones {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.boton-hero {
-    display: inline-block;
-    padding: 13px 20px;
-    border-radius: 7px;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.boton-principal {
-    background-color: var(--color-principal);
-    color: white;
-}
-
-.boton-principal:hover {
-    background-color: rgb(12, 78, 81);
-}
-
-.boton-secundario {
-    color: var(--color-principal);
-    border: 2px solid var(--color-principal);
-}
-
-.boton-secundario:hover {
-    background-color: var(--color-principal);
-    color: white;
-}
-
-@media (max-width: 750px) {
-    .landing-main {
-        padding: 35px 6%;
-    }
-
-    .hero {
-        flex-direction: column;
-        gap: 35px;
-    }
-
-    .hero-content h2 {
-        font-size: 32px;
-    }
-}
-
-@media (max-width: 420px) {
-    .hero-botones {
-        flex-direction: column;
-    }
-
-    .boton-hero {
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
- /*CARRITO*/
-.carrito{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     text-align: center;
-    width: 100%;
 }

@@ -8,7 +8,8 @@ export const vistaPrincipal = async (req, res) => {
         console.log(rows);
         res.render("index", {
             title: "Principal",
-            listaProductos: rows
+            listaProductos: rows,
+            limiteCaracteres: 30
         });
 
     } catch (error) {
@@ -32,8 +33,14 @@ export const create = async (req, res) => {
     });
 };
 
-export const home = async (req, res) => {
-    res.render("home", {
-        title: "Home"
+export const update = async (req, res) => {
+    res.render("update", {
+        title: "Modificar"
+    });
+};
+
+export const deleteProduct = async (req, res) => {
+    res.render("delete", {
+        title: "Eliminar"
     });
 };
