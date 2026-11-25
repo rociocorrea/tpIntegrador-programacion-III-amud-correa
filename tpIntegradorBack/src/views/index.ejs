@@ -2,28 +2,17 @@
     <%- include("partials/header.ejs") %>
 
         <main>
-            <div class="carrito">
-                <h2>Mi carrito</h2>
-                <ul id="cart-list" class="cart-list"></ul>
-
-                <h3>Total: $<span id="cart-total">0</span></h3>
-
-                <button class="boton" type="button" id="btn-empty" onclick="vaciarCarrito(event)">VACIAR CARRITO</button>
-            </div>
             <section id="contenedor-productos">
                 <% listaProductos.forEach(producto=> { %>
-                    <div class="card-producto">
-                        <img class="card-img" src="<%=producto.image.replace(`./`,`/`) %>" alt="<%= producto.name %>">
-                        <h4><%= producto.name %></h4>
+                    <div class="card-product <%= producto.active ? 'card-producto' : 'card-producto card-producto-deshabilitada' %>">
+                        <img class="card-img" src="<%=producto.image%>" alt="<%= producto.name %>">
+                        <h4><%= producto.name.length > limiteCaracteres ? producto.name.slice(0, limiteCaracteres) + "..." : producto.name %></h4>
                         <p>Id: <%= producto.id %></p>
                         <p>$ <%= producto.price %></p>
                         <p>Estado: <%= producto.active %></p>
-                        <button type="boton" class="btn-carrito boton" data-id="<%= producto.id %>" >Comprar</button>
                     </div>
                     <% }) %>
             </section>
         </main>
-        
-        <script src="/js/index.js"></script>
 
 <%- include("partials/footer.ejs") %>

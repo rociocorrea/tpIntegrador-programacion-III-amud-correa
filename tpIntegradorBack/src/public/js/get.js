@@ -1,8 +1,9 @@
 const urlBase = "http://localhost:3000";
 const contenedorProducto = document.getElementById("contenedor-producto");
 const getProductForm = document.getElementById("product-form");
-const updateProductForm = document.getElementById("update-form");
+const updateProductForm = document.getElementById("update-formulario");
 const errorContainer = document.getElementById("errors");
+const limiteCaracteres = 30;
 
 let productIdFound = null;
 
@@ -145,21 +146,22 @@ async function eliminarProducto(id) {
 
 function renderizarProducto(producto) {
     let htmlProductos = `
-                    <div class="card-producto">
+                    <div class="card-producto-get">
                         <img class="card-img" src="${producto.image}" alt="${producto.name}">
-                            <h4 title="${producto.name}">${producto.name.length > 40 ? `${producto.name.slice(0, 40)}...` : producto.name}</h4>
+                            <h4 title="${producto.name}">${producto.name.length > limiteCaracteres ? `${producto.name.slice(0, limiteCaracteres)}...` : producto.name}</h4>
                             <p>$ ${producto.price}</p>
                             <p>Id: ${producto.id}</p>
                             <p>Estado: ${producto.active}</p>
-
-                            <ul class="iconos">
-                                <li>
-                                    <i id="btn-modificar" class="fa-solid fa-pen-to-square"></i>
-                                </li>
-                                <li>
-                                    <i id="btn-eliminar" class="fa-solid fa-trash-can"></i>
-                                </li>
-                            </ul>
+                    </div>
+                    <div>
+                        <ul class="iconos">
+                            <li>
+                                <i id="btn-modificar" class="fa-solid fa-pen-to-square"></i>
+                            </li>
+                            <li>
+                                <i id="btn-eliminar" class="fa-solid fa-trash-can"></i>
+                            </li>
+                        </ul>
                     </div>
                 `;
 
