@@ -4,6 +4,10 @@ const selectAllProducts = () => {
     return connection.query("SELECT * FROM products");
 };
 
+const selectActiveProducts = () => {
+    return connection.query("SELECT id, name, image, category, price FROM products WHERE active = 1");
+};
+
 const selectProductById = (id) => {
     return connection.query(`SELECT * from products WHERE products.id = ?`, [id]);
 };
@@ -27,4 +31,5 @@ export default {
     insertProduct,
     updateProduct,
     deleteProductById, 
+    selectActiveProducts
 }

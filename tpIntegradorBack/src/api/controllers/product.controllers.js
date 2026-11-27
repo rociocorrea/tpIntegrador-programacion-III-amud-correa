@@ -24,6 +24,30 @@ export const getAllProducts = async (req, res) => {
     }
 };
 
+// GET active products
+export const getActiveProducts = async (req, res) => {
+    try {
+        const [rows] = await ProductModels.selectActiveProducts();
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "No se encontraron productos activos"
+            })
+        }
+
+        res.status(200).json({
+            payload: rows
+        })
+    }
+    catch (error) {
+        console.log("Error obteniendo productos activos: ", error);
+
+        res.status(500).json({
+            message: "Error interno al obtener productos activos"
+        });
+    }
+};
+
 //GET by Id
 export const getProductById = async (req, res) => {
     try {
